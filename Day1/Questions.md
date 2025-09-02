@@ -12,3 +12,13 @@ Le fichier pom.xml permet de configurer le projet et gérer les différentes dé
 
 
 ### Job 3
+**Question : Qu'est-ce qu'un contrôleur dans le contexte de Spring MVC ?**
+
+Le controller dans le contexte de Spring MVC se charge de la communication entre le modèle et la view.
+Il fait le lien entre notre code et le framework qui va recevoir des requêtes HTTP et va pouvoir renvoyer une réponse comme une page HTML.
+
+### Job 4
+**Question : Comment Spring permet-il l'injection de propriétés depuis des fichiers de configuration ?**
+
+Les propriétés définies dans les fichiers de configurations (application.properties ou application.yml) peuvent être injectées dans des composants.
+Spring va se charger d'aller récupérer les valeurs des propriétés se trouvant dans les fichiers de configuration. Cette fonctionnalité nous permet ensuite d'utiliser le décorateur @Value et d'injecter la valeur voulu dans la variable de notre choix.
