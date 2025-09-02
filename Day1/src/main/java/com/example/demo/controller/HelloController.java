@@ -13,17 +13,9 @@ import org.springframework.beans.factory.annotation.Value;
         @GetMapping("/")
         @ResponseBody
         public String hello() {
-            return greetings;
+            int a = 2+2;
+            return greetings + "va te faire AAAAG  fuck va te faire mettre foutre putain";
         }
-
-
-//    public static void main(String[] args) {
-//
-//        System.out.println("Hello World");
-//        for (String arg : args) {
-//            System.out.println(arg);
-//        }
-//    }
 }
 
 

@@ -1,6 +1,20 @@
 spring:
   application:
     name: demo
+  profiles:
+      active: dev
 
+---
+spring:
+  config:
+      activate:
+        on-profile: dev
 greeting:
-  message: "Hello World, test du décorateur @value"
+  message: "Hello World from DEV"
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+greeting:
+  message: "Hello World from PROD"
