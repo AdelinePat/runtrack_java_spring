@@ -29,3 +29,6 @@ Spring va se charger d'aller récupérer les valeurs des propriétés se trouvan
 Il est très utile et important d'avoir des configurations différentes afin de mieux gérer les différents environnements. Le plus connu est l'environnement de développement qui ne demande pas du tout les même configurations que l'environnement de production. L'environnement de dev va plus se concentrer sur des configurations qui permet de tester rapidement et avoir les modifications du code sans avoir à relancer l'application par exemple alors que pour la production, l'important et d'avoir l'environnement le plus efficient pour l'utilisation.
 
 ### Job 6
+**Question : En quoi la dépendance DevTools est-elle bénéfique pour le développement ?**
+
+DevTools permet d'appliquer les modifications du code même si l'application est en cours d'exécution, cela rend le développement plus rapide puisqu'il n'y a plus besoin de redémarrer l'application manuellement
