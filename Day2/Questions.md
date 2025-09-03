@@ -16,3 +16,14 @@ Thymeleaf permet de créer des balises dynamiques, c'est à dire de remplacer le
 
 Pour passer des données du controller vers la vue, il suffit d'utiliser les attributs th: dans la vue, déterminer le nom de la variable sous ce format ${nomDeVariable}.
 Une fois dans le controller, on utilise la méthode model.addAttribute("nomDeLaVariable", laValeurDeLaVariable); où laValeurDeLaVariable est la valeur trouvée dans le controller via le Model (en général).
+
+### Job 4
+**Question : Comment Spring facilite-t-il la gestion des formulaires ?**
+Spring permet de facilement récupérer les données du formulaire via les méthodes POST ou GET.
+Il va récupérer un objet avec les différents champs en utilisant l'attribut "name" des balises et grâce à @PostMapping qui permet de récupérer l'objet contenant les champs et leurs valeurs ainsi que @RequestParam qui permet de viser un champ particulier, on peut récupérer les valeurs que l'on veut et traiter ensuite les différentes données comme on l'entend.
+Cela permet de facilement manipuler les données provenant de la view et grâce à thymeleaf, on peut renvoyer d'autres informations à la view après le traitement des informations
+
+### Job 5
+**Question : Comment Spring permet-il la validation des données du formulaire ?**
+
+Il utilise la méthode POST ou GET comme n'importe quel langage qui traite les formulaires.

@@ -9,5 +9,19 @@
 <ul>
     <li th:each="obj : ${objList}" th:text="${obj}">mot par defaut</li>
 </ul>
+<form method="POST" action="/viewIGuess" th:object="${validForm}">
+    <input th:field="*{welcome}" type="text" name="welcome" id="welcome" placeholder="name">
+    <div th:if="${#fields.hasErrors('welcome')}" th:errors="*{welcome}"></div>
+
+    <input th:field="*{anotherField}"  type="text" name="anotherField" id="anotherField" placeholder="anotherField">
+    <div th:if="${#fields.hasErrors('anotherField')}" th:errors="*{anotherField}"></div>
+
+    <input th:field="*{age}"  type="number" name="age" id="age">
+    <div th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></div>
+    <button type="submit">Appuie sur le bouton</button>
+</form>
+
+<h3 th:text="${welcomeMessage}"></h3>
+
 </body>
 </html>
