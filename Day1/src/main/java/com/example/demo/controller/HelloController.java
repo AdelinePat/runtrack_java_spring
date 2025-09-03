@@ -1,23 +1,22 @@
 package com.example.demo.controller;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.beans.factory.annotation.Value;
 
-    @Controller
-    public class HelloController {
+@Controller
+public class HelloController {
 
-        @Value("${greeting.message}")
-        private String greetings;
+    @Value("${greeting.message}")
+    private String greetingMessage;
 
-        @GetMapping("/")
-        @ResponseBody
-        public String hello() {
-            int a = 2+2;
-            return greetings + "va te faire AAAAG  fuck va te faire mettre foutre putain";
-        }
+    @Value("${greeting.tools}")
+    private String toolsMessage;
+
+    @GetMapping("/")
+    @ResponseBody
+    public String hello() {
+        return greetingMessage + " | " + toolsMessage;
+    }
 }
-
-
-
-

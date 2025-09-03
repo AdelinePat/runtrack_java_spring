@@ -2,19 +2,20 @@ spring:
   application:
     name: demo
   profiles:
-      active: dev
-
+    active: dev
 ---
 spring:
   config:
-      activate:
-        on-profile: dev
+    activate:
+      on-profile: dev
 greeting:
-  message: "Hello World from DEV"
+  message: "Hello World from DEV Tib"
+  tools: "Reload ?"
 ---
 spring:
   config:
     activate:
       on-profile: prod
 greeting:
-  message: "Hello World from PROD"
+  message: "Hello World from PROD Tib"
+  tools: "Hello Tools depuis PROD Tib"
