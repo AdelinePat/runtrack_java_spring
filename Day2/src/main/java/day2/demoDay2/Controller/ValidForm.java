@@ -2,14 +2,15 @@
 
     import jakarta.validation.constraints.Max;
     import jakarta.validation.constraints.Min;
+    import jakarta.validation.constraints.NotBlank;
     import jakarta.validation.constraints.NotNull;
 
 
     public class ValidForm {
-        @NotNull(message = "le champ nom est obligatoire")
+        @NotBlank(message = "le champ nom est obligatoire")
         private String welcome;
 
-        @NotNull(message = "le champ else est obligatoire")
+        @NotBlank(message = "le champ else est obligatoire")
         private String anotherField;
 
         @NotNull(message = "le champ âge est obligatoire")
