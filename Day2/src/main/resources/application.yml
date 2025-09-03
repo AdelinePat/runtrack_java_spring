@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: demo
+  profiles:
+    active: dev
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+greeting:
+  message: "VA TE FAIRE !!! Hello World test 3 le retour omg DEV"
+  view: "Hello VIEW vous êtes les meilleurs depuis Dev"
+  objList: ["Something", "I can't", "stand", "Java"]
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+greeting:
+  message: "VA TE FAIRE2 Hello World from PROD"
+  view: "Hello VIEW depuis PROD"
+  objList: ["Something", "I can't", "stand", "Java"]
