@@ -3,6 +3,7 @@ package day3.day3.controller;
 import day3.day3.Model.Person;
 import day3.day3.Model.PersonRepository;
 
+import day3.day3.Service.PersonService;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,10 +22,11 @@ public class ViewController {
     @Value("${greeting.view}")
     private String viewMessage;
 
-    private final PersonRepository personRepository;
 
-    public ViewController(PersonRepository personRepository) {
-        this.personRepository = personRepository;
+    private final PersonService personService;
+
+    public ViewController(PersonService personService) {
+        this.personService = personService;
     }
 
     // Display page
@@ -34,7 +36,7 @@ public class ViewController {
         model.addAttribute("objList", Arrays.asList("Something", "I can't", "stand", "Java"));
 
         model.addAttribute("validForm", new ValidForm()); // form for adding
-        List<Person> persons = personRepository.findAll();
+        List<Person> persons = personService.getAllPersons();
         model.addAttribute("persons", persons);
 
         return "view";
@@ -47,12 +49,8 @@ public class ViewController {
         if (bindingResult.hasErrors()) {
             return "view";
         }
+        personService.addPerson(validForm.getWelcome(), validForm.getAge());
 
-        // Save new person
-        Person person = new Person(validForm.getWelcome(), validForm.getAge());
-        personRepository.save(person);
-
-        // Redirect to GET to reload the page
         return "redirect:/viewIGuess";
     }
 
@@ -61,20 +59,14 @@ public class ViewController {
     public String updatePerson(@PathVariable Long id,
                                @RequestParam String personName,
                                @RequestParam Integer personAge) {
-        personRepository.findById(id).ifPresent(person -> {
-            person.setName(personName);
-            person.setAge(personAge);
-            personRepository.save(person);
-        });
+        personService.updatePerson(id, personName, personAge);
         return "redirect:/viewIGuess";
     }
 
     // Delete existing person
     @PostMapping("/viewIGuess/{id}/delete")
     public String deletePerson(@PathVariable Long id) {
-        if (personRepository.existsById(id)) {
-            personRepository.deleteById(id);
-        }
+        personService.deletePerson(id);
         return "redirect:/viewIGuess";
     }
 
