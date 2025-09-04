@@ -30,5 +30,42 @@
   </li>
 </ul>
 
+
+
+<table>
+  <thead>
+  <tr>
+    <th>ID</th><th>Nom</th><th>Âge</th><th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="aPerson : ${persons}">
+    <td th:text="${aPerson.id}">1</td>
+
+    <!-- UPDATE inline -->
+    <td colspan="2" style="padding:0;">
+      <form th:action="@{|/viewIGuess/${aPerson.id}/update|}" method="post" style="display:grid;grid-template-columns:1fr 110px auto;gap:.4rem;">
+        <input name="personName" th:value="${aPerson.name}" required />
+        <input name="personAge" type="number" min="0" th:value="${aPerson.age}" required />
+        <button type="submit">Mettre à jour</button>
+        <!-- Si Spring Security est activé, ajoute aussi le champ CSRF :
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+        -->
+      </form>
+    </td>
+
+    <!-- DELETE -->
+    <td>
+      <form th:action="@{|/viewIGuess/${aPerson.id}/delete|}" method="post">
+        <button type="submit" onclick="return confirm('Supprimer cette personne ?')">Supprimer</button>
+        <!-- CSRF si Security :
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+        -->
+      </form>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
 </body>
 </html>
