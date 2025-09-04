@@ -1,0 +1,25 @@
+## Jour 3
+
+### Job 1
+**Question : Qu'est-ce que JPA et comment facilite-t-il l'accès aux bases de données ?**
+
+Spring Data JPA fournit une implémentation de la couche d'accès aux données pour une   
+application Spring. C'est une brique très pratique car elle permet de ne pas réinventer  
+la roue de l'accès aux données à chaque nouvelle application et donc de se concentrer sur  
+la partie métier.
+
+### Job 2
+**Question : Pourquoi les bases de données en mémoire, comme H2, sont-elles utiles pendant le développement ?**
+
+Cela permet d'avoir d'émuler la phase de production de l'application sans avoir besoin de modifier la véritable base de données.
+L'avoir en mémoire permet une plus grande rapidité d'exécution pour les tests
+
+
+### Job 3
+**Question : Quelle est l'importance des annotations, telles que @Entity, dans le contexte de JPA ?**
+
+Les annotations comme @Entity permet de faire le lien entre le code Java et JPA (Java Persistence API) qui va communiquer avec la base de données.
+Cela va permettre de facilement mapper entre l'objet et la table et vice versa.
+Les autres annotations permet de paramètrer les différents éléments qui doivent pouvoir être en lien avec la base de données.
+@Id permet d'identifier la clé primaire d'une table dans un objet, @GeneratedValue permet de spécifier que la valeur doit être générée automatiquement et pas manuellement.
+Cela permet de faire du SQL sans faire de requête directement et de se concentrer sur la logique métier de l'application
