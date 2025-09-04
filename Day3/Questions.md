@@ -81,3 +81,7 @@ Il suffit d'ajouter un autre controller (java) et view (html) pour le formulaire
 Spring Security gère les autorisations via la classe @Configuration en utilisant UserDetailsService pour créer les utilisateurs et leur rôle dans la base de données
 Dans l'objet de la classe SecurityFilterChain (se trouvant dans la classe de @Configuration), dans la méthode authorizeHttpRequests, on peut spécifier quel rôle peut accéder à quel URL.
 Si un utilisateur n'ayant pas le rôle prévu par authorizeHttpRequests essaye d'accéder à cet URL, une erreur de type "whilelabel" s'affichera, si l'utilisateur a accès, Spring Security lui affichera la page normalement.
+
+
+### Job 5
+**Question : Comment stocker en toute sécurité les mots de passe des utilisateurs avec Spring Security? **
