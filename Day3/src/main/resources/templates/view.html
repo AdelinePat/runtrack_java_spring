@@ -23,5 +23,12 @@
 
 <h3 th:text="${welcomeMessage}"></h3>
 
+<h2>List of Persons in DB</h2>
+<ul>
+  <li th:each="p : ${persons}">
+    <span th:text="${p.name}"></span> - <span th:text="${p.age}"></span>
+  </li>
+</ul>
+
 </body>
 </html>

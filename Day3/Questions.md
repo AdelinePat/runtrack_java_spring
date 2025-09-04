@@ -3,10 +3,7 @@
 ### Job 1
 **Question : Qu'est-ce que JPA et comment facilite-t-il l'accès aux bases de données ?**
 
-Spring Data JPA fournit une implémentation de la couche d'accès aux données pour une   
-application Spring. C'est une brique très pratique car elle permet de ne pas réinventer  
-la roue de l'accès aux données à chaque nouvelle application et donc de se concentrer sur  
-la partie métier.
+Spring Data JPA fournit une implémentation de la couche d'accès aux données pour une application Spring. C'est une brique très pratique car elle permet de ne pas réinventer la roue de l'accès aux données à chaque nouvelle application et donc de se concentrer sur la partie métier.
 
 ### Job 2
 **Question : Pourquoi les bases de données en mémoire, comme H2, sont-elles utiles pendant le développement ?**
@@ -23,3 +20,16 @@ Cela va permettre de facilement mapper entre l'objet et la table et vice versa.
 Les autres annotations permet de paramètrer les différents éléments qui doivent pouvoir être en lien avec la base de données.
 @Id permet d'identifier la clé primaire d'une table dans un objet, @GeneratedValue permet de spécifier que la valeur doit être générée automatiquement et pas manuellement.
 Cela permet de faire du SQL sans faire de requête directement et de se concentrer sur la logique métier de l'application
+
+
+
+### Job 4
+**Question : Comment Spring Data facilite-t-il la création de requêtes de base de données?**
+
+Spring Data JPA réduit le code standard, promeut les meilleures pratiques et améliore   
+la productivité des développeurs en offrant un moyen pratique d'interagir avec les   
+bases de données relationnelles tout en conservant la flexibilité nécessaire pour   
+personnaliser les requêtes et les comportements lorsque cela est nécessaire.
+
+### Job 5
+**Question : Comment pouvez-vous créer et lire des entités avec Spring Data JPA ?**
