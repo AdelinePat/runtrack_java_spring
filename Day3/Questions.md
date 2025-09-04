@@ -29,7 +29,7 @@ Cela permet de faire du SQL sans faire de requête directement et de se concentr
 Spring Data JPA réduit le code standard, promeut les meilleures pratiques et améliore la productivité des développeurs en offrant un moyen pratique d'interagir avec les bases de données relationnelles tout en conservant la flexibilité nécessaire pour personnaliser les requêtes et les comportements lorsque cela est nécessaire.
 
 ### Job 05
-**Comment pouvez-vous créer et lire des entités avec Spring Data JPA ?**
+**Question : Comment pouvez-vous créer et lire des entités avec Spring Data JPA ?**
 
 Pour créer et lire des entités avec Spring Data JPA, on définit une interface qui étend JpaRepository.
 
@@ -43,7 +43,7 @@ User findByEmail(String email);
 }`
 
 ### Job 06
-**Comment la méthode save de Spring Data JPA peut-elle être utilisée à la fois pour la création et la mise à jour ?**
+**Question : Comment la méthode save de Spring Data JPA peut-elle être utilisée à la fois pour la création et la mise à jour ?**
 
 La méthode save() de Spring Data JPA fait à la fois création (INSERT) et mise à jour (UPDATE) grâce au comportement de JPA/Hibernate qui se base sur la clé primaire (@Id) de l’entité :
 
@@ -54,3 +54,22 @@ La méthode save() de Spring Data JPA fait à la fois création (INSERT) et mise
 *Si l’entité a déjà un ID correspondant à une ligne existante en base:*
 
     save() effectue un UPDATE → la ligne est modifiée avec les nouvelles valeurs.
+
+## Jour 4
+### Job 1
+**Pourquoi est-il conseillé de séparer la logique métier des contrôleurs ?**
+
+Cela rend le code plus lisible et maintenable
+
+### Job 2
+**Question : Quels sont les avantages d'utiliser Spring Security pour protéger une application ?**
+
+
+### Job 3
+**Question : Comment personnaliser le formulaire de connexion avec Spring Security ?**
+
+Pour personnaliser le formulaire de connexion, il fait créer une view dédiée (login.html par exemple) avec les champs username et password.
+Dans la classe de configuration de Spring Security (celle qui utilise l'annotation @Configuration et securityFilterChain) on utilise .formLogin().loginPage("/login") pour préciser à Spring Security d'utiliser la page de login plutôt que la page par défaut. 
+On ajoute aussi un controller relié à la view du formulaire de connexion pour pouvoir renvoyer la page dans le navigateur.
+
+Il suffit d'ajouter un autre controller (java) et view (html) pour le formulaire, dans la classe pour laquelle on a utilisé l'annotation @Configuration on redirige les requêtes http vers le bon controller (ne pas utiliser celui par défaut mais celui du login du coup) qui traite les données et vers la bonne view en conséquence.
