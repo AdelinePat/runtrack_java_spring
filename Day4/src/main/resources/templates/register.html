@@ -11,6 +11,7 @@
     <button type="submit">Register</button>
 </form>
 
+<div th:if="${passwordError}" th:text="${passwordError}"></div>
 <div th:if="${usernameError}" th:text="${usernameError}"></div>
 <div th:if="${successMessage}" th:text="${successMessage}"></div>
 <a th:href="@{/login}">Se connecter</a>

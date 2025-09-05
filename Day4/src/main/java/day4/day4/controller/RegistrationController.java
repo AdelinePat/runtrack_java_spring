@@ -29,10 +29,21 @@ public class RegistrationController {
                                BindingResult bindingResult,
                                Model model) {
 
-        if (bindingResult.hasErrors()) {
+        // Custom error messages
+        if (registrationForm.getUsername() == null || registrationForm.getUsername().isBlank()) {
+            model.addAttribute("usernameError", "Vous devez entrer un nom d'utilisateur");
+        }
+
+        if (registrationForm.getPassword() == null || registrationForm.getPassword().length() < 4) {
+            model.addAttribute("passwordError", "Le mot de passe doit faire au moins 4 caractères");
+        }
+
+        // Stop if there are errors
+        if (model.containsAttribute("usernameError") || model.containsAttribute("passwordError")) {
             return "register";
         }
 
+        // Check if username already exists
         if (userService.findByUsername(registrationForm.getUsername()).isPresent()) {
             model.addAttribute("usernameError", "Nom d'utilisateur déjà utilisé");
             return "register";
@@ -40,6 +51,6 @@ public class RegistrationController {
 
         userService.addUser(registrationForm.getUsername(), registrationForm.getPassword());
         model.addAttribute("successMessage", "Compte créé ! Vous pouvez maintenant vous connecter.");
-        return "redirect:/login?registered"; // redirect to manual login page
+        return "redirect:/login?registered";
     }
 }
