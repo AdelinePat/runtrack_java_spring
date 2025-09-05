@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page principale</title>
+</head>
+<body>
+<h1 th:text="${welcomeMessage}">Bienvenue : nom d'utilisateur par défaut</h1>
+<p>ceci est la page de l'application</p>
+<a th:href="@{/admin}">Page Admin</a>
+<h3><form th:action="@{/admin}" method="get">
+    <button type="submit">page admin</button>
+</form></h3>
+<h3><form th:action="@{/logout}" method="post">
+    <button type="submit">Logout</button>
+</form></h3>
+</body>
+</html>
